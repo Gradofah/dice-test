@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>Unity WebGL Player | Hop</title>
+    <title>Dice Quest</title>
     <link rel="shortcut icon" href="TemplateData/favicon.ico">
     <link rel="stylesheet" href="TemplateData/style.css">
     <link rel="manifest" href="manifest.webmanifest">
@@ -45,7 +45,6 @@
 
         function updateContainerSize() {
             const windowHeight = window.innerHeight;
-            // Рассчитываем ширину по пропорциям
             const containerWidth = (referenceWidth / referenceHeight) * windowHeight;
 
             const container = document.querySelector("#unity-container");
@@ -67,7 +66,6 @@
         var progressBarFull = document.querySelector("#unity-progress-bar-full");
         var warningBanner = document.querySelector("#unity-warning");
 
-        // Показать временное сообщение
         function unityShowBanner(msg, type) {
             function updateBannerVisibility() {
                 warningBanner.style.display = warningBanner.children.length ? 'block' : 'none';
@@ -86,12 +84,17 @@
             updateBannerVisibility();
         }
 
+        function onUnityAction(eventData) {
+          console.log("Action event received from Unity:", eventData);
+          // You can handle the event data here
+        }
+
       var buildUrl = "Build";
-      var loaderUrl = buildUrl + "/dice.loader.js";
+      var loaderUrl = buildUrl + "/test.loader.js";
       var config = {
-        dataUrl: buildUrl + "/dice.data.unityweb",
-        frameworkUrl: buildUrl + "/dice.framework.js.unityweb",
-        codeUrl: buildUrl + "/dice.wasm.unityweb",
+        dataUrl: buildUrl + "/test.data.unityweb",
+        frameworkUrl: buildUrl + "/test.framework.js.unityweb",
+        codeUrl: buildUrl + "/test.wasm.unityweb",
         streamingAssetsUrl: "StreamingAssets",
         companyName: "Dice Adventure Quest",
         productName: "Dice Adventure Quest",
