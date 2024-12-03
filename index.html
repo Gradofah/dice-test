@@ -43,10 +43,11 @@
         const referenceWidth = 1080;
         const referenceHeight = 1920;
 
-        var gameInstance = UnityLoader.instantiate("gameContainer", "Build/build.json");
+        
 
         function UnpauseSound()
         {
+          var gameInstance = UnityLoader.instantiate("gameContainer", "Build/build.json");
           gameInstance.SendMessage("AudioController", "UnmuteAudio")
         }
 
