@@ -43,6 +43,10 @@
         const referenceWidth = 1080;
         const referenceHeight = 1920;
 
+        function OnGameStarted(){
+          console.log("OnGameStarted event called")
+        }
+
         function updateContainerSize() {
             const windowHeight = window.innerHeight;
             const containerWidth = (referenceWidth / referenceHeight) * windowHeight;
