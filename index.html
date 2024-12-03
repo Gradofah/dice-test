@@ -44,9 +44,8 @@
         const referenceHeight = 1920;
 
         function OnGameStarted(){
-          console.log("OnGameStarted event called")
-
-          window.unityWebView ? window.unityWebView.send("game_started") : console.warn("Unity WebView is not available");
+          console.log("OnGameStarted event called");
+          window.location.href = "uniwebview://game-started";
         }
 
         function updateContainerSize() {
