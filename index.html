@@ -45,6 +45,8 @@
 
         function OnGameStarted(){
           console.log("OnGameStarted event called")
+
+          window.unityWebView ? window.unityWebView.send("game_started") : console.warn("Unity WebView is not available");
         }
 
         function updateContainerSize() {
