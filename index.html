@@ -43,9 +43,25 @@
         const referenceWidth = 1080;
         const referenceHeight = 1920;
 
+        var gameInstance = UnityLoader.instantiate("gameContainer", "Build/build.json");
+
+        function UnpauseSound()
+        {
+          gameInstance.SendMessage("AudioController", "UnmuteAudio")
+        }
+
+        function OnGameInitialized()
+        {
+          window.location.href = "uniwebview://game-initialized";
+        }
+
         function OnGameStarted(){
-          console.log("OnGameStarted event called");
           window.location.href = "uniwebview://game-started";
+        }
+
+        function OnGameEndedOrRestarted()
+        {
+          window.location.href = "uniwebview://game-endedorrestarted"
         }
 
         function updateContainerSize() {
@@ -106,13 +122,6 @@
         productVersion: "1.0",
         showBanner: unityShowBanner,
       };
-
-      // By default Unity keeps WebGL canvas render target size matched with
-      // the DOM size of the canvas element (scaled by window.devicePixelRatio)
-      // Set this to false if you want to decouple this synchronization from
-      // happening inside the engine, and you would instead like to size up
-      // the canvas DOM size and WebGL render target sizes yourself.
-      // config.matchWebGLToCanvasSize = false;
 
       if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
         // Mobile device style: fill the whole browser client area with the game canvas:
